@@ -12,8 +12,14 @@
       Panier: {{ totalCartItem() }}
     </button>
   </div>
+  @if (productService.productsResource.hasValue()) {
   <app-products-list
     [products]="products()"
     [selectedCategory]="selectedCategory()"
   />
+  } @else if (productService.productsResource.error()) {
+  <span class="error-message"
+    >Erreur lors du chargement de la liste des produits
+  </span>
+  }
 </div>

@@ -1,6 +1,8 @@
-/* Home link */
 .home-link-container {
   margin: 32px 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .home-link {
@@ -12,7 +14,7 @@
   border-radius: 4px;
   font-size: 14px;
 }
-/* Cart layout */
+
 .cart-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -25,14 +27,12 @@
   }
 }
 
-/* Product rows */
 .products-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* Summary boxes */
 .summary-container {
   display: flex;
   flex-direction: column;

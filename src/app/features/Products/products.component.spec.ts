@@ -48,7 +48,9 @@ describe('ProductsComponent', () => {
     registerLocaleData(localeFr, 'fr');
     productServiceMock = {
       productsResource: {
-        value: signal(products),
+        value: jest.fn(() => products),
+        hasValue: jest.fn(() => true),
+        error: jest.fn(() => null),
       },
     };
 

@@ -9,6 +9,14 @@ export class ProductService {
   private apiUrl = environment.apiUrl;
 
   productsResource = resource({
-    loader: async (): Promise<Products> => (await fetch(this.apiUrl)).json(),
+    loader: async (): Promise<Products> => {
+      try {
+        const response = await fetch(this.apiUrl);
+        return response.json();
+      } catch (error) {
+        console.error('Erreur de chargement des produits', error);
+        return [];
+      }
+    },
   });
 }

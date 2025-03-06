@@ -18,7 +18,6 @@
   min-width: 100px;
 }
 
-/* Remove button */
 .remove-button {
   width: 32px;
   height: 32px;
@@ -34,7 +33,6 @@
   font-size: 12px;
 }
 
-/* Responsive adjustments for small screens */
 @media (max-width: 640px) {
   .product-details {
     flex-direction: column;

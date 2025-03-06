@@ -1,0 +1,20 @@
+<div class="product-row">
+  <div class="product-details">
+    <div class="product-name">{{ shoppingItem().product.productName }}</div>
+    <div class="product-quantity">Qte: {{ shoppingItem().qty }}</div>
+    <div class="product-taxes">Taxes: {{ shoppingItem().tax }}</div>
+    <div class="product-price-ht">
+      Prix unitaire HT {{ shoppingItem().priceHT }}
+    </div>
+    <div class="product-price-ttc">
+      Prix unitaire TTC: {{ shoppingItem().priceTTC }} €
+    </div>
+  </div>
+  <button
+    (click)="removeItem.emit(shoppingItem().product.id)"
+    class="remove-button"
+    aria-label="Remove product"
+  >
+    ✕
+  </button>
+</div>

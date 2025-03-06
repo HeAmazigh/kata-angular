@@ -1,0 +1,9 @@
+<div class="product-list">
+  @for (product of filteredProduct(); track product.id) {
+  <app-product-details [product]="product" />
+  } @empty {
+  <div>
+    <h3>Product vide</h3>
+  </div>
+  }
+</div>

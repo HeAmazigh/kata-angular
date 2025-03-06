@@ -1,0 +1,14 @@
+<div class="toast-container" role="alert">
+  @for (toast of toastService.toasts; track toast) {
+  <div
+    role="alert"
+    class="toast"
+    [ngClass]="{
+      error: toast.type === 'ERROR',
+      success: toast.type === 'SUCCESS'
+    }"
+  >
+    <div class="toast-message">{{ toast.body }}</div>
+  </div>
+  }
+</div>

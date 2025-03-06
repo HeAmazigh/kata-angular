@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="top-section">
+    <select [(ngModel)]="selectedCategory">
+      <option value="all">Select All</option>
+      @for (category of categories(); track $index) {
+      <option [value]="category">
+        {{ category }}
+      </option>
+      }
+    </select>
+    <button class="cart-button" routerLink="shopping-cart">
+      Panier: {{ totalCartItem() }}
+    </button>
+  </div>
+  <app-products-list
+    [products]="products()"
+    [selectedCategory]="selectedCategory()"
+  />
+</div>

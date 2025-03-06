@@ -1,0 +1,32 @@
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(350px, 1fr)
+  ); /* Grille responsive */
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* ✅ Responsive Design */
+
+/* Tablette */
+// @media (max-width: 1024px) {
+//   .top-section {
+//     flex-direction: column;
+//     align-items: center;
+//     gap: 10px;
+//   }
+// }
+
+/* Mobile */
+@media (max-width: 768px) {
+  .product-list {
+    grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+  }
+
+  .top-section {
+    text-align: center;
+  }
+}

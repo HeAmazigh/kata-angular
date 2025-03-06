@@ -1,0 +1,21 @@
+<div class="product-card">
+  <h4>{{ product().productName }}</h4>
+  <p>Catégorie: {{ product().category }}</p>
+  <p>Prix: {{ product().price }} €</p>
+  @if (isOutOfStock) {
+  <p>Quantité non disponible</p>
+  }
+
+  <div class="product-actions">
+    <label for="qty">Qts:</label>
+    <input id="qty" type="number" [(ngModel)]="qte" [disabled]="isOutOfStock" />
+    <button
+      [ngClass]="isOutOfStock ? 'disabled-button' : 'add-button'"
+      class="add-button"
+      (click)="addToCart(product()!)"
+      [disabled]="isOutOfStock"
+    >
+      Ajouter
+    </button>
+  </div>
+</div>

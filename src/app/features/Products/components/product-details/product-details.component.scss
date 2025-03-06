@@ -1,0 +1,52 @@
+.product-card {
+  border: 2px solid orange;
+  padding: 15px;
+  background: #fff3e0;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+
+  /* 🔥 Assurer une hauteur uniforme */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 250px; /* Ajustable selon besoin */
+}
+
+.product-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.quantity {
+  background: blue;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.add-button {
+  background: green;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.not-available {
+  color: gray;
+}
+
+.disabled-button {
+  background: gray;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: not-allowed;
+  border-radius: 5px;
+}

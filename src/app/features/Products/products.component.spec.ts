@@ -5,6 +5,8 @@ import { CartService } from '../shopping-cart/services/cart.service';
 import { signal } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { Products } from './models';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 
 describe('ProductsComponent', () => {
   let component: ProductsComponent;
@@ -43,6 +45,7 @@ describe('ProductsComponent', () => {
   ];
 
   beforeEach(async () => {
+    registerLocaleData(localeFr, 'fr');
     productServiceMock = {
       productsResource: {
         value: signal(products),

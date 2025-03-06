@@ -2,11 +2,12 @@ import { Component, inject, input, signal } from '@angular/core';
 import { Product } from '../../models';
 import { CartService } from '../../../shopping-cart/services/cart.service';
 import { FormsModule } from '@angular/forms';
-import { NgClass } from '@angular/common';
+import { CurrencyPipe, NgClass } from '@angular/common';
+import { PricePipe } from '../../../../shared/pipes/price.pipe';
 
 @Component({
   selector: 'app-product-details',
-  imports: [FormsModule, NgClass],
+  imports: [FormsModule, NgClass, PricePipe, CurrencyPipe],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.scss',
 })

@@ -3,6 +3,8 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductsListComponent } from './products-list.component';
 import { Products } from '../../models';
 import { Category } from '../../enums/category.enum';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 
 describe('ProductsListComponent', () => {
   let component: ProductsListComponent;
@@ -30,6 +32,7 @@ describe('ProductsListComponent', () => {
   ];
 
   beforeEach(async () => {
+    registerLocaleData(localeFr, 'fr');
     await TestBed.configureTestingModule({
       imports: [ProductsListComponent],
     }).compileComponents();

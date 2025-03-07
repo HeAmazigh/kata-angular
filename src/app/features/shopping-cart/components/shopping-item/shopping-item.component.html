@@ -1,5 +1,5 @@
-<div class="product-row">
-  <div class="product-details">
+<div class="flex align-items-center product-row">
+  <div class="flex gap-12 product-details">
     <div class="product-name">{{ shoppingItem().product.productName }}</div>
     <div class="product-quantity">Qte: {{ shoppingItem().qty }}</div>
     <div class="product-taxes">Taxes: {{ shoppingItem().tax }}</div>
@@ -12,7 +12,7 @@
   </div>
   <button
     (click)="removeItem.emit(shoppingItem().product.id)"
-    class="remove-button"
+    class="flex justify-content-center align-items-center remove-button"
     aria-label="Remove product"
   >
     ✕

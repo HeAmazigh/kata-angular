@@ -1,8 +1,6 @@
 .home-link-container {
   margin: 32px 0 24px;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .home-link {
@@ -18,25 +16,12 @@
 .cart-container {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
 }
 
 @media (min-width: 768px) {
   .cart-container {
     grid-template-columns: 1fr 300px;
   }
-}
-
-.products-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.summary-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
 .summary-box {

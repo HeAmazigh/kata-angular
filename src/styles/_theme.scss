@@ -1,0 +1,28 @@
+input {
+  border: var(--border);
+  border-radius: 6px;
+  padding: 12px;
+
+  &:disabled {
+    opacity: 0;
+  }
+}
+
+.btn {
+  font-weight: 500;
+  border: 0;
+  cursor: pointer;
+  border-radius: var(--radius);
+  padding: 8px 16px;
+  transition: background-color 0.4s;
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  color: white;
+}
+
+.btn-primary {
+  background-color: var(--bg-color);
+  color: white;
+}

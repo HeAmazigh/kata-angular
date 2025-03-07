@@ -1,5 +1,7 @@
 @use "./styles/reset";
 @use "./styles/variables";
+@use "./styles/utils";
+@use "./styles/theme";
 
 .container {
   font-family: Arial, sans-serif;

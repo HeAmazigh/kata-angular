@@ -11,7 +11,13 @@
 
   <div class="product-actions">
     <label for="qty">Qts:</label>
-    <input id="qty" type="number" [(ngModel)]="qte" [disabled]="isOutOfStock" />
+    <input
+      id="qty"
+      type="number"
+      [(ngModel)]="qte"
+      [disabled]="isOutOfStock"
+      [max]="product().stock"
+    />
     <button
       [ngClass]="isOutOfStock ? 'disabled-button' : 'add-button'"
       class="add-button"

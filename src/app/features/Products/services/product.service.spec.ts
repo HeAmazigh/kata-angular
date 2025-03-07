@@ -1,60 +1,70 @@
 import { TestBed } from '@angular/core/testing';
+import {
+  HttpTestingController,
+  provideHttpClientTesting,
+} from '@angular/common/http/testing';
 
 import { ProductService } from './product.service';
 import { Products } from '../models';
+import { environment } from '../../../../environments/environment';
+import { provideHttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 
 describe('ProductService', () => {
   let service: ProductService;
-  let productServiceMock: any;
-
-  const products: Products = [
-    {
-      id: 1,
-      productName: 'Laptop',
-      price: 1200,
-      quantity: 1,
-      stock: 10,
-      isImported: true,
-      category: 'Electronics',
-    },
-    {
-      id: 2,
-      productName: 'Coffee Mug',
-      price: 15,
-      quantity: 2,
-      stock: 50,
-      isImported: false,
-      category: 'Kitchenware',
-    },
-    {
-      id: 3,
-      productName: 'Wireless Headphones',
-      price: 200,
-      quantity: 1,
-      stock: 25,
-      isImported: true,
-      category: 'Electronics',
-    },
-  ];
+  let httpTestingController: HttpTestingController;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
     service = TestBed.inject(ProductService);
-    productServiceMock = {
-      productsResource: {
-        value: jest.fn(() => products),
-        hasValue: jest.fn(() => true),
-        error: jest.fn(() => null),
-      },
-    };
+    httpTestingController = TestBed.inject(HttpTestingController);
   });
 
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should load products from API', async () => {
-    const result = await productServiceMock.productsResource.value();
-    expect(result).toEqual(products);
+  it('should fetch products from API', async () => {
+    const mockProducts: Products = [
+      {
+        id: 1,
+        productName: 'Laptop',
+        price: 1200,
+        quantity: 1,
+        stock: 10,
+        isImported: true,
+        category: 'Electronics',
+      },
+      {
+        id: 2,
+        productName: 'Coffee Mug',
+        price: 15,
+        quantity: 2,
+        stock: 50,
+        isImported: false,
+        category: 'Kitchenware',
+      },
+      {
+        id: 3,
+        productName: 'Wireless Headphones',
+        price: 200,
+        quantity: 1,
+        stock: 25,
+        isImported: true,
+        category: 'Electronics',
+      },
+    ];
+    const promise = firstValueFrom(
+      service.http.get<Products>(environment.apiUrl)
+    );
+
+    const req = httpTestingController.expectOne(environment.apiUrl);
+    expect(req.request.method).toBe('GET');
+    req.flush(mockProducts);
+
+    const products = await promise;
+    expect(products).toEqual(products);
   });
 });

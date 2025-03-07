@@ -1,6 +1,6 @@
 import { Component, computed, input } from '@angular/core';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
-import { Products } from '../../models';
+import { Products } from '../../models/product.model';
 
 @Component({
   selector: 'app-products-list',

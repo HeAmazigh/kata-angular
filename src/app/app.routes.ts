@@ -11,4 +11,5 @@ export const routes: Routes = [
     loadChildren: async () =>
       (await import('./features/Products/product.routes')).routes,
   },
+  { path: '**', redirectTo: '' },
 ];

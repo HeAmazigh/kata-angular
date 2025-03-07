@@ -5,10 +5,10 @@ import {
 } from '@angular/common/http/testing';
 
 import { ProductService } from './product.service';
-import { Products } from '../models';
 import { environment } from '../../../../environments/environment';
 import { provideHttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { Products } from '../models/product.model';
 
 describe('ProductService', () => {
   let service: ProductService;

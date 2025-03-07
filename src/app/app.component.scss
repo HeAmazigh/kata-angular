@@ -1,6 +1,5 @@
-.title {
-  background-color: var(--title-color);
-  display: inline-block;
-  padding: 10px;
-  border-radius: 5px;
+:host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }

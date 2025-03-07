@@ -1,5 +1,5 @@
 import { Category } from '../../features/Products/enums/category.enum';
-import { Product } from '../../features/Products/models';
+import { Product } from '../../features/Products/models/product.model';
 
 const TAX_RATE_FOOD_MEDICINE = 0;
 const TAX_RATE_BOOKS = 10;

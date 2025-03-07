@@ -1,17 +1,16 @@
 import { CurrencyPipe } from '@angular/common';
 import { CartService } from './services/cart.service';
-import { Component, computed, inject } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, computed } from '@angular/core';
 import { ShoppingItemComponent } from './components/shopping-item/shopping-item.component';
 
 @Component({
   selector: 'app-shopping-cart',
-  imports: [RouterLink, CurrencyPipe, ShoppingItemComponent],
+  imports: [CurrencyPipe, ShoppingItemComponent],
   templateUrl: './shopping-cart.component.html',
   styleUrl: './shopping-cart.component.scss',
 })
 export class ShoppingCartComponent {
-  cartService = inject(CartService);
+  constructor(readonly cartService: CartService) {}
 
   cartItems = computed(() => this.cartService.cartItems());
 

@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Product } from '../../features/Products/models';
 import { calculateTax } from '../utils/taxe.service';
+import { Product } from '../../features/Products/models/product.model';
 
 @Pipe({
   name: 'price',

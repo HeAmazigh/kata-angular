@@ -4,9 +4,9 @@ import { ShoppingCartComponent } from './shopping-cart.component';
 import { provideRouter } from '@angular/router';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
-import { Product } from '../Products/models';
 import { Category } from '../Products/enums/category.enum';
 import { CartService } from './services/cart.service';
+import { Product } from '../Products/models/product.model';
 
 describe('ShoppingCartComponent', () => {
   let component: ShoppingCartComponent;

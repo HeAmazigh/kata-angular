@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component } from '@angular/core';
 import { ToastService } from '../../toast/toast.service';
 import { NgClass } from '@angular/common';
 
@@ -9,5 +9,5 @@ import { NgClass } from '@angular/common';
   styleUrl: './toast.component.scss',
 })
 export class ToastComponent {
-  toastService = inject(ToastService);
+  constructor(readonly toastService: ToastService) {}
 }

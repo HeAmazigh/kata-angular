@@ -1,9 +1,9 @@
-import { Component, inject, input, signal } from '@angular/core';
-import { Product } from '../../models';
+import { Component, input, signal } from '@angular/core';
 import { CartService } from '../../../shopping-cart/services/cart.service';
 import { FormsModule } from '@angular/forms';
 import { CurrencyPipe, NgClass } from '@angular/common';
 import { PricePipe } from '../../../../shared/pipes/price.pipe';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-product-details',
@@ -13,8 +13,9 @@ import { PricePipe } from '../../../../shared/pipes/price.pipe';
 })
 export class ProductDetailsComponent {
   product = input.required<Product>();
-  cartService = inject(CartService);
   qte = signal(1);
+
+  constructor(readonly cartService: CartService) {}
 
   addToCart(product: Product): void {
     this.cartService.addToCart(product, this.qte());

@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductDetailsComponent } from './product-details.component';
-import { Product } from '../../models';
 import { Category } from '../../enums/category.enum';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { Product } from '../../models/product.model';
 
 describe('ProductDetailsComponent', () => {
   let component: ProductDetailsComponent;

@@ -1,5 +1,5 @@
 import { Category } from '../../features/Products/enums/category.enum';
-import { Product } from '../../features/Products/models';
+import { Product } from '../../features/Products/models/product.model';
 import { PricePipe } from './price.pipe';
 
 describe('PricePipe', () => {

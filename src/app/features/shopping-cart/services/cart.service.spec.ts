@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 
 import { CartService } from './cart.service';
-import { Product } from '../../Products/models';
 import { Category } from '../../Products/enums/category.enum';
+import { Product } from '../../Products/models/product.model';
 
 describe('CartService', () => {
   let service: CartService;

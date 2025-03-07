@@ -1,15 +1,16 @@
-import { inject, Injectable, resource } from '@angular/core';
+import { Injectable, resource } from '@angular/core';
 import { environment } from '../../../../environments/environment';
-import { Products } from '../models';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { Products } from '../models/product.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
   readonly apiUrl = environment.apiUrl;
-  http = inject(HttpClient);
+
+  constructor(readonly http: HttpClient) {}
 
   productsResource = resource({
     loader: async (): Promise<Products> => {

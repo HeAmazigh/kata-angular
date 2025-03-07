@@ -1,7 +1,7 @@
 .product-card {
-  border: 2px solid orange;
+  border: 2px solid var(--orange);
   padding: 15px;
-  background: #fff3e0;
+  background: var(--orange-500);
   border-radius: 10px;
   text-align: center;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
@@ -21,15 +21,15 @@
 }
 
 .quantity {
-  background: blue;
-  color: white;
+  background: var(--blue);
+  color: var(--white);
   padding: 5px 10px;
   border-radius: 5px;
 }
 
 .add-button {
-  background: green;
-  color: white;
+  background: var(--success);
+  color: var(--white);
   padding: 5px 10px;
   border: none;
   cursor: pointer;
@@ -37,12 +37,12 @@
 }
 
 .not-available {
-  color: gray;
+  color: var(--gray-700);
 }
 
 .disabled-button {
-  background: gray;
-  color: white;
+  background: var(--gray-700);
+  color: var(--white);
   padding: 5px 10px;
   border: none;
   cursor: not-allowed;

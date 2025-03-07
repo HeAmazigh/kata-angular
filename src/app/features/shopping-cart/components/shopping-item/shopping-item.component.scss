@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid #c5dcfa;
+  border: 1px solid var(--blue-100);
   border-radius: 4px;
   padding: 12px;
 }
@@ -25,9 +25,9 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  border: 1px solid #fad5d5;
+  border: 1px solid var(--border);
   background: none;
-  color: #e74c3c;
+  color: var(--orange-900);
   cursor: pointer;
   margin-left: 8px;
   font-size: 12px;

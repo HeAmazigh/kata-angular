@@ -16,9 +16,9 @@
 
 select {
   padding: 8px 12px;
-  border: 2px solid #007bff;
+  border: 2px solid var(--blue);
   border-radius: 5px;
-  background-color: white;
+  background-color: var(--white);
   font-size: 16px;
   color: #333;
   cursor: pointer;
@@ -27,34 +27,34 @@ select {
   min-width: 150px;
 
   &:hover {
-    border-color: #0056b3;
+    border-color: var(--blue-500);
   }
 
   &:focus {
-    border-color: #0056b3;
+    border-color: var(--blue-500);
     box-shadow: 0 0 5px rgba(0, 91, 187, 0.5);
   }
 }
 
 option {
-  background: white;
+  background: var(--white);
   color: #333;
   font-size: 16px;
   padding: 5px;
 
   &:hover {
-    background: #007bff;
-    color: white;
+    background: var(--blue);
+    color: var(--white);
   }
 }
 
 .error-message {
   display: block;
   text-align: center;
-  color: red;
+  color: var(--danger);
   font-size: 16px;
   padding: 10px;
   margin-top: 2rem;
-  border: 1px solid red;
-  background: #f8d7da;
+  border: 1px solid var(--danger);
+  background: var(--danger-100);
 }

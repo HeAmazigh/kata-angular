@@ -37,24 +37,6 @@ describe('ProductService', () => {
         isImported: true,
         category: 'Electronics',
       },
-      {
-        id: 2,
-        productName: 'Coffee Mug',
-        price: 15,
-        quantity: 2,
-        stock: 50,
-        isImported: false,
-        category: 'Kitchenware',
-      },
-      {
-        id: 3,
-        productName: 'Wireless Headphones',
-        price: 200,
-        quantity: 1,
-        stock: 25,
-        isImported: true,
-        category: 'Electronics',
-      },
     ];
     const promise = firstValueFrom(
       service.http.get<Products>(environment.apiUrl)
@@ -65,6 +47,6 @@ describe('ProductService', () => {
     req.flush(mockProducts);
 
     const products = await promise;
-    expect(products).toEqual(products);
+    expect(products).toEqual(mockProducts);
   });
 });

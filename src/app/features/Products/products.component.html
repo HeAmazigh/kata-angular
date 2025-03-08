@@ -1,7 +1,14 @@
 <div class="container">
   <div class="flex align-items-center w-full top-section">
-    <select [(ngModel)]="selectedCategory">
-      <option value="all">Select All</option>
+    <label for="categoryFilter">Filter by category</label>
+    <select
+      [(ngModel)]="selectedCategory"
+      id="categoryFilter"
+      aria-label="filter by category"
+    >
+      <option value="all" aria-live="polite" aria-label="filter by category">
+        Select All
+      </option>
       @for (category of categories(); track $index) {
       <option [value]="category">
         {{ category }}

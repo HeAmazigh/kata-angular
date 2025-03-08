@@ -1,29 +1,35 @@
 <div class="flex align-items-center home-link-container">
-  <button class="btn btn-danger" (click)="cleanCart()">Vide</button>
+  <button class="btn btn-danger" (click)="cleanCart()" aria-label="Empty cart">
+    Empty CarT
+  </button>
 </div>
 
 <div class="gap-16 cart-container">
-  <div class="flex flex-col gap-12">
+  <div class="flex flex-col gap-12" role="list">
     @for (item of cartItems(); track $index) {
     <app-shopping-item
       [shoppingItem]="item"
       (removeItem)="removeItem($event)"
     />
     } @empty {
-    <div class="flex" style="flex: 1">
-      <h3>Panier vide</h3>
+    <div class="flex" style="flex: 1" aria-live="polite">
+      <h3>Cart is empty</h3>
     </div>
     }
   </div>
 
   <div class="flex flex-col gap-12">
     <div class="summary-box taxes-total">
-      TOTAL Taxes:
-      {{ totalTaxes() | currency : "EUR" : "symbol" : "1.2-2" : "fr" }}
+      <strong id="total-taxes-label">TOTAL Taxes:</strong>
+      <span aria-labelledby="total-taxes-label">
+        {{ totalTaxes() | currency : "EUR" : "symbol" : "1.2-2" : "fr" }}
+      </span>
     </div>
     <div class="summary-box price-total">
-      TOTAL TTC:
-      {{ totalPriceTTC() | currency : "EUR" : "symbol" : "1.2-2" : "fr" }}
+      <strong id="total-ttc-label">TOTAL TTC:</strong>
+      <span aria-labelledby="total-ttc-label">
+        {{ totalPriceTTC() | currency : "EUR" : "symbol" : "1.2-2" : "fr" }}
+      </span>
     </div>
   </div>
 </div>

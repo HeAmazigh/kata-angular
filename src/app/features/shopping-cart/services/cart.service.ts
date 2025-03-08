@@ -1,13 +1,20 @@
-import { Injectable, signal } from '@angular/core';
+import { effect, Injectable, signal } from '@angular/core';
 import { calculateTax } from '../../../shared/utils/taxe.service';
 import { CartItem, CartItems } from '../models/cartItem.model';
 import { Product } from '../../Products/models/product.model';
 
+const CART_STORAGE_KEY = 'cartItems';
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  cartItems = signal<CartItems>([]);
+  cartItems = signal<CartItems>(this.loadCartFromLocalStorage());
+
+  constructor() {
+    effect(() => {
+      this.saveCartToLocalStorage(this.cartItems());
+    });
+  }
 
   addToCart(product: Product, quantity: number): void {
     const existingItem = this.cartItems().find(
@@ -44,5 +51,14 @@ export class CartService {
       priceHT: product.price,
       priceTTC: product.price + tax,
     };
+  }
+
+  private saveCartToLocalStorage(cart: CartItems): void {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+  }
+
+  private loadCartFromLocalStorage(): CartItems {
+    const storedCart = localStorage.getItem(CART_STORAGE_KEY);
+    return storedCart ? JSON.parse(storedCart) : [];
   }
 }

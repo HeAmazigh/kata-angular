@@ -7,9 +7,14 @@ export const routes: Routes = [
       (await import('./features/shopping-cart/shopping-cart.routes')).routes,
   },
   {
-    path: '',
+    path: 'products',
     loadChildren: async () =>
       (await import('./features/Products/product.routes')).routes,
+  },
+  {
+    path: '',
+    redirectTo: '/products',
+    pathMatch: 'full',
   },
   { path: '**', redirectTo: '' },
 ];

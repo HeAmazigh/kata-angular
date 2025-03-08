@@ -1,5 +1,5 @@
 input {
-  border: var(--border);
+  border: var(--primary-color);
   border-radius: 6px;
   padding: 12px;
 
@@ -24,5 +24,10 @@ input {
 
 .btn-primary {
   background-color: var(--bg-color);
+  color: white;
+}
+
+.active-link {
+  border-bottom: 2px solid var(--white);
   color: white;
 }

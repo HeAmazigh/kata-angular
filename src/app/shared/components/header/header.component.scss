@@ -21,3 +21,21 @@
   align-items: center;
   gap: 8px;
 }
+
+.button-text {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.card-count {
+  background-color: var(--orange-900);
+  border-radius: 50%;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  height: 1.25rem;
+  width: 1.25rem;
+}

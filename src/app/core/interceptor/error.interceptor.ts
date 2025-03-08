@@ -8,7 +8,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
   return next(req).pipe(
     catchError((error) => {
       console.error(error);
-      toastService.show(error.message, 'ERROR');
+      toastService.show('Erreur réseau, veuillez réessayer plus tard', 'ERROR');
       return throwError(() => new Error(error.message));
     })
   );

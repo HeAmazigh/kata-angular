@@ -1,17 +1,23 @@
 <nav class="toolbar" role="navigation" aria-label="Main navigation">
-  <span>Kata Panier</span>
+  <span> {{ title }} </span>
   <span class="spacer"></span>
 
-  <button class="button" (click)="navigateToHome()" aria-label="Go to home">
-    <span class="button-text">Home</span>
-  </button>
-
-  <button
-    class="button"
-    (click)="navigateToCard()"
-    aria-label="Go to shopping cart"
+  <a
+    routerLink="/products"
+    routerLinkActive="active-link"
+    aria-label="Go to home"
   >
-    <span class="button-text">Panier {{ totalCartItem() }} </span>
+    Home
+  </a>
+
+  <a
+    routerLink="/shopping-cart"
+    aria-label="Go to shopping cart"
+    routerLinkActive="active-link"
+  >
+    <span class="button-text"
+      >Cart <span class="card-count"> {{ totalCartItem() }} </span>
+    </span>
     <span id="cart-count" aria-label="Items in cart"></span>
-  </button>
+  </a>
 </nav>

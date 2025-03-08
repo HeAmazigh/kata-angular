@@ -75,10 +75,6 @@ describe('ProductsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should initialize with the correct total cart items', () => {
-  //   expect(component.totalCartItem()).toBe(5);
-  // });
-
   it('should initialize with the correct products', () => {
     expect(component.products()).toEqual(products);
   });

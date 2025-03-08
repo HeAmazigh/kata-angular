@@ -1,20 +1,41 @@
 <div class="flex flex-col align-items-center product-card">
-  <h4>{{ product().productName }}</h4>
-  <p>Catégorie: {{ product().category }}</p>
-  <p>
-    Prix:
-    {{ product() | price | currency : "EUR" : "symbol" : "1.2-2" : "fr" }}
-  </p>
-  @if (isOutOfStock) {
-  <p class="not-available">Quantité non disponible</p>
-  }
+  <h4>
+    <strong id="product-name-label">Name:&nbsp;</strong>
+    <span id="product-name" aria-labelledby="product-name-label">
+      {{ product().productName }}
+    </span>
+  </h4>
+
+  <div>
+    <strong id="category-label">Category:&nbsp;</strong>
+    <span id="category" aria-labelledby="category-label">
+      {{ product().category }}
+    </span>
+  </div>
+
+  <div>
+    <strong id="product-quantity-label">Quantity:&nbsp;</strong>
+    <span id="product-quantity" aria-labelledby="product-quantity-label">
+      {{ product().stock }}
+    </span>
+  </div>
+
+  <div>
+    <strong id="product-price-label">Price:&nbsp;</strong>
+    <span id="product-price" aria-labelledby="product-price-label">
+      {{ product() | price | currency : "EUR" : "symbol" : "1.2-2" : "fr" }}
+    </span>
+  </div>
 
   <div
     class="flex justify-content-center align-items-center gap-12 w-full product-actions"
   >
-    @if (!isOutOfStock) {
-    <label for="qty">Qts:</label>
+    @if (isOutOfStock) {
+    <p class="not-available" aria-live="polite">Quantity not available</p>
+    } @if (!isOutOfStock) {
+    <label for="qty">Qty:</label>
     }
+
     <input
       id="qty"
       type="number"
@@ -22,13 +43,13 @@
       [disabled]="isOutOfStock"
       [max]="product().stock"
     />
+
     <button
       [ngClass]="isOutOfStock ? 'disabled-button' : 'add-button'"
-      class="add-button"
       (click)="addToCart(product()!)"
       [disabled]="isOutOfStock"
     >
-      Ajouter
+      Add to Cart
     </button>
   </div>
 </div>

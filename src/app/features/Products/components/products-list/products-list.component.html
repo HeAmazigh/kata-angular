@@ -1,8 +1,8 @@
-<div class="justify-content-center gap-16 w-full product-list">
+<div class="justify-content-center gap-16 w-full product-list" role="menu">
   @for (product of filteredProduct(); track product.id) {
   <app-product-details [product]="product" />
   } @empty {
-  <div>
+  <div aria-live="polite">
     <h3>Product vide</h3>
   </div>
   }

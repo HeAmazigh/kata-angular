@@ -14,7 +14,7 @@ export class ProductService {
 
   productsResource = resource({
     loader: async (): Promise<Products> => {
-      return firstValueFrom(this.http.get<Products>(this.apiUrl));
+      return firstValueFrom(this.http.get<Products>(`${this.apiUrl}`));
     },
   });
 }

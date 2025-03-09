@@ -22,10 +22,13 @@ describe('CartService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        ProductService,
+      ],
     });
     service = TestBed.inject(CartService);
-    productService = TestBed.inject(ProductService);
   });
 
   it('should be created', () => {

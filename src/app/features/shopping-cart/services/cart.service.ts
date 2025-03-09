@@ -1,4 +1,4 @@
-import { computed, effect, Injectable, signal } from '@angular/core';
+import { effect, Injectable, signal } from '@angular/core';
 import { calculateTax } from '../../../shared/utils/taxe.service';
 import { CartItem, CartItems } from '../models/cartItem.model';
 import { Product } from '../../Products/models/product.model';
@@ -11,7 +11,7 @@ const CART_STORAGE_KEY = 'cartItems';
 export class CartService {
   cartItems = signal<CartItems>(this.loadCartFromLocalStorage());
 
-  constructor(private productService: ProductService) {
+  constructor(readonly productService: ProductService) {
     effect(() => {
       this.saveCartToLocalStorage(this.cartItems());
     });
@@ -29,7 +29,6 @@ export class CartService {
             : item
         )
       );
-      // existingItem.qty += quantity;
     } else {
       const newCartItem = this.createCartItem(product, quantity);
       this.cartItems.update((oldCartItem) => [...oldCartItem, newCartItem]);

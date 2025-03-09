@@ -5,6 +5,10 @@ import { Category } from '../../enums/category.enum';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import { Product } from '../../models/product.model';
+import { CartService } from '../../../shopping-cart/services/cart.service';
+import { ProductService } from '../../services/product.service';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('ProductDetailsComponent', () => {
   let component: ProductDetailsComponent;
@@ -24,6 +28,12 @@ describe('ProductDetailsComponent', () => {
     registerLocaleData(localeFr, 'fr');
     await TestBed.configureTestingModule({
       imports: [ProductDetailsComponent],
+      providers: [
+        CartService,
+        ProductService,
+        provideHttpClient(),
+        provideHttpClientTesting(),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ProductDetailsComponent);

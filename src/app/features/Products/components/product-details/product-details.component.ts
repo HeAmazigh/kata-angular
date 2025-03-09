@@ -19,6 +19,8 @@ export class ProductDetailsComponent {
 
   addToCart(product: Product): void {
     this.cartService.addToCart(product, this.qte());
+    product.stock = product.stock - this.qte();
+    this.qte.set(1);
   }
 
   get isOutOfStock(): boolean {

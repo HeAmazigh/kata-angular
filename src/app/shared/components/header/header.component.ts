@@ -10,6 +10,7 @@ import { CartService } from '../../../features/shopping-cart/services/cart.servi
 })
 export class HeaderComponent {
   title = 'Kata Panier';
+
   constructor(readonly router: Router, readonly cartService: CartService) {}
 
   totalCartItem = computed(() => this.cartService.getTotalItems());

@@ -2,6 +2,10 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HeaderComponent } from './header.component';
 import { provideRouter } from '@angular/router';
+import { CartService } from '../../../features/shopping-cart/services/cart.service';
+import { ProductService } from '../../../features/Products/services/product.service';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('HeaderComponent', () => {
   let component: HeaderComponent;
@@ -10,7 +14,13 @@ describe('HeaderComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [HeaderComponent],
-      providers: [provideRouter([])],
+      providers: [
+        provideRouter([]),
+        CartService,
+        ProductService,
+        provideHttpClient(),
+        provideHttpClientTesting(),
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(HeaderComponent);

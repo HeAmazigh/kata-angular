@@ -7,6 +7,9 @@ import localeFr from '@angular/common/locales/fr';
 import { Category } from '../Products/enums/category.enum';
 import { CartService } from './services/cart.service';
 import { Product } from '../Products/models/product.model';
+import { ProductService } from '../Products/services/product.service';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('ShoppingCartComponent', () => {
   let component: ShoppingCartComponent;
@@ -27,7 +30,13 @@ describe('ShoppingCartComponent', () => {
     registerLocaleData(localeFr, 'fr');
     await TestBed.configureTestingModule({
       imports: [ShoppingCartComponent],
-      providers: [provideRouter([]), CartService],
+      providers: [
+        provideHttpClient(),
+        provideHttpClientTesting(),
+        provideRouter([]),
+        CartService,
+        ProductService,
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ShoppingCartComponent);

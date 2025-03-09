@@ -3,9 +3,13 @@ import { TestBed } from '@angular/core/testing';
 import { CartService } from './cart.service';
 import { Category } from '../../Products/enums/category.enum';
 import { Product } from '../../Products/models/product.model';
+import { ProductService } from '../../Products/services/product.service';
+import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
 
 describe('CartService', () => {
   let service: CartService;
+  let productService: ProductService;
   const mockProduct: Product = {
     id: 1,
     productName: 'Test Product',
@@ -17,8 +21,11 @@ describe('CartService', () => {
   };
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [provideHttpClient(), provideHttpClientTesting()],
+    });
     service = TestBed.inject(CartService);
+    productService = TestBed.inject(ProductService);
   });
 
   it('should be created', () => {
@@ -35,7 +42,7 @@ describe('CartService', () => {
     service.addToCart(mockProduct, 2);
     service.addToCart(mockProduct, 5);
     expect(service.cartItems().length).toBe(1);
-    expect(service.cartItems()[0].qty).toBe(5);
+    expect(service.cartItems()[0].qty).toBe(7);
   });
 
   it('should remove a product from the cart', () => {
@@ -48,7 +55,7 @@ describe('CartService', () => {
     service.addToCart(mockProduct, 2);
     expect(service.getTotalItems()).toBe(2);
     service.addToCart(mockProduct, 5);
-    expect(service.getTotalItems()).toBe(5);
+    expect(service.getTotalItems()).toBe(7);
   });
 
   it('should clean the cart', () => {

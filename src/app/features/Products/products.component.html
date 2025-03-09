@@ -1,9 +1,11 @@
 <div class="container">
   <div class="flex align-items-center w-full top-section">
-    <label for="categoryFilter">Filter by category</label>
+    <label for="category-filter" class="category-filter"
+      >Filter by category</label
+    >
     <select
       [(ngModel)]="selectedCategory"
-      id="categoryFilter"
+      id="category-filter"
       aria-label="filter by category"
     >
       <option value="all" aria-live="polite" aria-label="filter by category">
@@ -16,8 +18,14 @@
       }
     </select>
   </div>
+  @if (isLoading()) {
+  <div class="loading">Loading...</div>
+  }@else if (error()) {
+  <div class="error-message">Error loading products</div>
+  }@else {
   <app-products-list
     [products]="products()"
     [selectedCategory]="selectedCategory()"
   />
+  }
 </div>

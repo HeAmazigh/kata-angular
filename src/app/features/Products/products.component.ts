@@ -14,6 +14,11 @@ export class ProductsComponent {
 
   constructor(readonly productService: ProductService) {}
 
+  readonly isLoading = computed(() =>
+    this.productService.productsResource.isLoading()
+  );
+  readonly error = computed(() => this.productService.productsResource.error());
+
   categories = computed(() => [
     ...new Set(this.products().map((product) => product.category)),
   ]);

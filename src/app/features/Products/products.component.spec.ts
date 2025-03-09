@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductsComponent } from './products.component';
 import { ProductService } from './services/product.service';
-import { CartService } from '../shopping-cart/services/cart.service';
 import { provideRouter } from '@angular/router';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
@@ -11,7 +10,6 @@ describe('ProductsComponent', () => {
   let component: ProductsComponent;
   let fixture: ComponentFixture<ProductsComponent>;
   let productServiceMock: any;
-  let cartServiceMock: any;
 
   const products: Products = [
     {
@@ -50,11 +48,8 @@ describe('ProductsComponent', () => {
         value: jest.fn(() => products),
         hasValue: jest.fn(() => true),
         error: jest.fn(() => null),
+        isLoading: jest.fn(() => false),
       },
-    };
-
-    cartServiceMock = {
-      getTotalItems: jest.fn().mockReturnValue(5),
     };
 
     await TestBed.configureTestingModule({
@@ -62,7 +57,6 @@ describe('ProductsComponent', () => {
       providers: [
         provideRouter([]),
         { provide: ProductService, useValue: productServiceMock },
-        { provide: CartService, useValue: cartServiceMock },
       ],
     }).compileComponents();
 
